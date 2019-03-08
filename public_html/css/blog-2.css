@@ -14,17 +14,42 @@ body {
 	color: black;
 	background-color: firebrick;
 }
-nav {
+#nav_header {
+    background-color:darkred;
+}
+#nav_ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+#nav_li {
+  float: left;
+  border-right:1px solid grey;
+}
+#nav_li:last-child {
+  border-right:none;
+}
+#nav_a {
+  display: block;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+#nav_a:hover {
+  background-color: darkslategrey;
 }
 section {
 	float: left;
-	width: 75%;
+	width: 60%;
     color:white;
     background-color:darkred;
 }
 aside {
 	float:right;
-	width: 25%;
+	width: 40%;
 }
 footer {
 	clear: both;
