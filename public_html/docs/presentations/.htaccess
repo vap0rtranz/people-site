@@ -10,7 +10,7 @@ IndexOptions IgnoreCase FancyIndexing FoldersFirst NameWidth=* DescriptionWidth=
 IndexIgnore .htaccess .ftpquota .DS_Store icons *.ico *.html *.css *.log *,v *,t .??* *~ *#
 
 # SPECIFY HEADER FILE
-HeaderName people_header.html
+HeaderName ../../html/people_header.html
  
 # SPECIFY FOOTER FILE
-ReadmeName people_footer.html
+ReadmeName ../../css/people_footer.html
