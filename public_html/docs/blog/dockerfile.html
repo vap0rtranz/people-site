@@ -1,0 +1,143 @@
+Table of contents
+
+Problem Statement
+
+"I JUST want to use a Dockerfile!  I know Docker Inc is terrible, and docker runtimes are a thing of the past, but here we have the app already containerized and setup to run on Swarm, Amazon's ECS, local docker daemon, etc. and I'm told to deploy the app to OpenShift.  I cannot figure out a simple way to just deploy to OpenShift!  Why is OpenShift so difficult?!"
+
+
+KISS Solution
+
+The solution in diagram:
+
+Chaining builds
+Graham Dumpleton to the rescue, again, with basic steps!
+
+openshift - How to specify a Dockerfile without passing it inline or hosted on a git server - Stack Overflow 
+
+
+Create a new build with the docker strategy. 
+
+    oc new-build --name my-build --strategy=docker --binary
+
+
+Start the build and point to a location that has Dockerfile (ex: local directory)
+
+    oc start-build my-build --from-dir . --follow
+
+In OpenShift world, this is called a "buildconfig" or just "bc".  We'll check the bc logs below.
+
+
+Check logs of build
+
+    oc logs bc/my-build
+
+Deploy the app using the previously built docker image as the imagestream. 
+
+    oc new-app --image-stream my-build --name my-app
+
+In OpenShift world, a "deploymentconfig", shorted as "dc", is used to configure the app, but we are accepting defaults here.  We'll check the dc logs below.
+
+
+Check logs of deploy
+
+    oc logs dc/my-build
+
+Check status of deploy, including Pod runtimes
+
+    oc status -v
+
+
+That's All Folks!  Your Dockerfile has been built & its app deployed to OpenShift!  KISS!
+
+
+Typical Follow-ups
+
+It still doesn't work / "I'm seeing an error"
+
+
+OpenShift binary builds are fairly persnickety.  Examples:
+
+
+It only accepts a Dockerfile that has the literal filename "Dockerfile", not DockerFile nor Dockerfile.txt, etc.  Otherwise you'll see this error:
+
+
+    error: open /tmp/build/inputs/Dockerfile: no such file or directory
+
+
+We clamp down on security by default in OpenShift, so root user / privileged containers or images who set a specific username/UID will require modification to work in OpenShift.  See My image runs without issue via the docker command line, but does not run on OpenShift Container Platform - Red Hat Cust… 
+
+
+Also, increase your loglevel when following the process to see what's going on:
+
+
+    oc start-build my-build --from-dir . --follow --build-loglevel 5
+
+Why couldn't I find straight forward steps for Dockerfiles?
+
+
+In Red Hat land, we call this use of Dockerfiles a form of "binary builds", and sometimes as "binary deployments"; so unless a customer looks for our terminology, they won't find this process.  These are foreign terms to most customers, even those that come from docker tooling (perhaps because Docker Inc calls it simply a "docker build", and regardless of how many docs and blogs that our smart folks write about it, there is still lack of clarity that confuses folks in public.  Case in point: Creating Openshift build from Dockerfile - Stack Overflow )
+
+
+Binary Builds - Tutorials | Developer Guide | OpenShift Container Platform 3.11 
+
+Binary Deployments with OpenShift 3 – Red Hat OpenShift Blog
+
+docker build | Docker Documentation
+
+
+I need to iteratively develop/deploy many Dockerfile variations, so how do I do that?
+
+
+Keep running oc start-build against the various Dockerfile versions.  Docker builds are point in time uploads to OpenShift.  So you can cycle through this example loop of local changes with new builds:
+
+
+    git add ...
+
+    git commit ...
+
+    oc start-build ...
+
+
+Or switch to a build pipeline with CI/CD automation triggered on changes to the repo.  Actually this last point shows a tangible example for the value of CI/CD in OpenShift.
+
+
+My Dockerfile is up in Github, and I don't want to use local dir, so how?
+
+
+Ok that is a bit odd (that you're not cloning/pulling from a remote repo, but let's not digress), and still possible because the `oc new-build` command can accept URLs too.
+
+    oc new-build --from-repo https://github.com/sonatype-nexus-community/iq-webhook-listener
+
+
+What's this RHEL base image?  RH keeps telling me to use it!
+
+
+Red Hat Enterprise Linux Atomic Host 7 Chapter 2. Using Red Hat Base Container Images (standard and minimal) - Red Hat C… 
+
+
+
+How in the world do I download the latest, official OpenShift CLI?  just the oc client and nothing else!
+
+
+Dig around!
+
+https://access.redhat.com/downloads/content/290/ver=3.11/rhel---7/3.11.59/x86_64/product-software 
+
+
+The above link can (sometimes) be found in the OpenShift CLI (oc client) official KB:
+
+OpenShift Container Platform 3.11 CLI Reference - Red Hat Customer Portal 
+
+
+Non-Starters
+
+
+I've no time to install an OpenShift cluster / can I just use OpenShift Online?
+
+
+Sorry, no. Dockerfiles don't work with builds in OpenShift Online:
+
+docker - Problems creating OpenShift app using Dockerfile (with oc new-app) - Stack Overflow 
+
+
+Evidently this works but I've not tested it: Guidelines | Creating Images | OpenShift Online 3 

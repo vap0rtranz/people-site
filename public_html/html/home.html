@@ -15,7 +15,7 @@
   <meta name="description" content="Justin Pittman - Red Hat People page">
   <meta name="keywords" content="HTML,HTML5,CSS,CSS3">
   <meta translate="no" name="author" content="Justin Pittman">
-  <link rel="stylesheet" href="../css/blog-2.css" type="text/css" >
+  <link rel="stylesheet" href="../css/home.css" type="text/css" >
   <title>Blog - Homepage</title>
 </head>
 <!-- BODY -->
@@ -25,11 +25,12 @@
 <header id="nav_header">
  <nav id="nav_header">
   <ul id="nav_ul">
-   <li id="nav_li"><a id="nav_a" href="../docs/blog">CheatSheets</a></li>
+   <li class="active" id="nav_li"><a id="nav_a" href="../html/home.html">Home</a></li>
+   <li id="nav_li"><a id="nav_a" href="https://developers.redhat.com/search/?f=type%7Echeatsheet">CheatSheets</a></li>
+   <li id="nav_li"><a id="nav_a" href="../docs/blog">Blog</a></li>
    <li id="nav_li"><a id="nav_a" href="../docs/howtos">HowTos</a></li>
-   <li id="nav_li"><a id="nav_a" href="../docs/presentations">Presentations</a></li>
+   <li id="nav_li"><a id="nav_a" href="../docs/presentations">Presos</a></li>
    <li id="nav_li"><a id="nav_a" href="https://github.com/vap0rtranz">Code</a></li>
-   <li id="nav_li"><a id="nav_a" href=#footer_nav>Page Down</a></li>
   </ul>
  </nav> 
 </header>
@@ -44,29 +45,31 @@
 		<p>Download <a href="../images/j.png" download="my-logo.png">my logo</a></p>
 	 </details>
 	</article>
-</section>
-<!--ASIDE-->
-<aside>
+  <aside>
    <h2>Fun Stuff</h2>
    <!-- testing  <audio controls><source src="https://archive.org/download/ChildsPlay2-Trial/ChildsPlay-2-stereo-gainfix.ogg" type=audio/ogg></audio>
 	 <audio controls><source src="https://ia800503.us.archive.org/35/items/ModemSound/ModemSound1.ogg" type=audio/ogg></audio>
     -->
-</aside>
+   <a href="https://en.wikipedia.org/wiki/8-bit"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Atari_Basic_Program_Animation.gif" title="Atari BASIC" alt=" Atari BASIC gif"/></a>
+  </aside>
+</section>
+
 <!-- FOOTER -->
-<footer id="homepage_footer">
- <hr>
- <nav id="footer_nav">
-  <ul>
-    <li><a href=#header_nav>Top</a></li>
+<footer id="nav_footer">
+ <nav id="nav_footer">
+  <ul id="nav_ul">
+    <li id="nav_li"><a id="nav_a" href="mailto:justin.pittman@redhat.com">Contact</a></li>
+    <li id="nav_li"><a id="nav_a" href=#nav_header>Top</a></li>
   </ul>
-  </nav>
-  <p><a href="mailto:justin.pittman@redhat.com">Email the author</a></p>
+ </nav>
+ <hr>
   <a href="http://www.w3.org/html/logo/">
     <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered" title="HTML5 Powered">
   </a>
   <a href="https://jigsaw.w3.org/css-validator/">
     <img src="https://jigsaw.w3.org/css-validator/images/vcss" width="88" height="31" alt="Valid CSS!" title="W3C Validated CSS!"/>
   </a>
+  <img src="../images/people_redhat_com.png" width="145" height="64" alt="Red Hat People logo" title="Red Hat People logo"/>
 </footer> 
 </main>
 </body>
