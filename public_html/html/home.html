@@ -11,38 +11,41 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   -->
   <meta charset="utf-8">
+  <!-- responsive UI based on device -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Justin Pittman - Red Hat People page">
-  <meta name="keywords" content="HTML5,CSS3,static site,Red Hat,JBoss,journal">
+  <meta name="keywords" content="HTML5,CSS3,static site,Red Hat,redhat.com,JBoss,journal">
   <meta translate="no" name="author" content="Justin Pittman">
   <link rel="stylesheet" href="../css/home.css" type="text/css" >
-  <title>Blog - Homepage</title>
+  <title>Red Hat People - Justin Pittman</title>
 </head>
 <!-- BODY -->
 <body>
-<main>
 <!-- HEADER: NAVBAR -->
-<header id="nav_header">
- <nav id="nav_header">
-  <ul id="nav_ul">
-   <li class="active" id="nav_li"><a id="nav_a" href="../html/home.html">Home</a></li>
-   <li id="nav_li"><a id="nav_a" href="https://developers.redhat.com/search/?f=type%7Echeatsheet">CheatSheets</a></li>
-   <li id="nav_li"><a id="nav_a" href="https://developers.redhat.com/search/?f=type%7Ebook">Books</a></li>
-   <li id="nav_li"><a id="nav_a" href="../docs/blog">Journal</a></li>
-   <li id="nav_li"><a id="nav_a" href="../docs/howtos">HowTos</a></li>
-   <li id="nav_li"><a id="nav_a" href="../docs/presentations">Presos</a></li>
-   <li id="nav_li"><a id="nav_a" href="https://github.com/vap0rtranz">Code</a></li>
+<header id="nav_header" class="nav">
+ <nav id="nav_header" class="nav">
+  <ul id="nav_ul" class="nav">
+   <li class="active nav" id="nav_li"><a class="nav" id="nav_a" href="../html/home.html">Home</a></li>
+   <li class="nav" id="nav_li"><a class="nav" id="nav_a" href="https://developers.redhat.com/search/?f=type%7Echeatsheet">CheatSheets</a></li>
+   <li class="nav" id="nav_li"><a class="nav" id="nav_a" href="https://developers.redhat.com/search/?f=type%7Ebook">Books</a></li>
+   <li class="nav" id="nav_li"><a class="nav" id="nav_a" href="../docs/blog">Journal</a></li>
+   <li class="nav" id="nav_li"><a class="nav" id="nav_a" href="../docs/howtos">HowTos</a></li>
+   <li class="nav" id="nav_li"><a class="nav" id="nav_a" href="../docs/presentations">Presos</a></li>
+   <li class="nav" id="nav_li"><a class="nav" id="nav_a" href="https://github.com/vap0rtranz">Code</a></li>
   </ul>
  </nav> 
 </header>
-<!-- SECTION -->
+<!-- MAIN SECTION -->
+<main>
 <section id="blog_section">
-  <h2>Tech Goodies</h2>
-
+ <header>
+  <h2>Simple Site for Red Hat Tech</h2>
+	  <p>This is a simple site to get Red Hat stuff -- like cheatsheets, books, howtos, preso, and code -- into your hands.</p>
+  <h2>My Goodies</h2>
   <article>
 	<details>
 	  <summary>Latest Journal</summary>
-	  <p>Sent in an email to me:<blockquote cite="../docs/blog/dockerfile.html">I JUST want to use a Dockerfile! ... Why is OpenShift so difficult?!</blockquote></p>
+	  <p>Sent in an email to me:<dialog><blockquote cite="../docs/blog/dockerfile.html">I JUST want to use a Dockerfile! ... Why is OpenShift so difficult?!</blockquote></dialog></p>
 	  <p><a href="../docs/blog/dockerfile.html">Dockerfiles in OpenShift</a></p>
 	  <p>posted <time datetime="2019-03-07">March 7th, 2019</time></p>
 	</details>
@@ -57,21 +60,23 @@
   </article>
 
   <aside>
-   <h2>Fun Stuff</h2>
+   <h2>Tech Nostalgia</h2>
    <!-- testing  <audio controls><source src="https://archive.org/download/ChildsPlay2-Trial/ChildsPlay-2-stereo-gainfix.ogg" type=audio/ogg></audio>
     -->
-    <p><a href="https://en.wikipedia.org/wiki/8-bit"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Atari_Basic_Program_Animation.gif" title="Atari BASIC" alt=" Atari BASIC gif"/></a>
-   <p><audio controls><source src="https://ia800503.us.archive.org/35/items/ModemSound/ModemSound1.ogg" type=audio/ogg></audio>
+    <p>8-bits is all we ever needed.
+	<p><a href="https://en.wikipedia.org/wiki/8-bit"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Atari_Basic_Program_Animation.gif" title="Atari BASIC" alt=" Atari BASIC gif"/></a>
+    <p>The sound of being "connected" in the 80s:
+	<p><audio controls><source src="https://ia800503.us.archive.org/35/items/ModemSound/ModemSound1.ogg" type=audio/ogg></audio>
   </aside>
 </section>
 
 <!-- FOOTER -->
-<footer id="nav_footer">
- <nav id="nav_footer">
-  <ul id="nav_ul">
-    <li id="nav_li"><a id="nav_a" href="mailto:justin.pittman@redhat.com">Email</a></li>
-    <li id="nav_li"><a id="nav_a" href="https://www.linkedin.com/in/justinpittman/">Linkedin</a></li>
-    <li id="nav_li"><a id="nav_a" href=#nav_header>Top</a></li>
+<footer id="nav_footer" class="nav">
+ <nav id="nav_footer" class="nav">
+  <ul id="nav_ul" class="nav">
+    <li class="nav" id="nav_li"><a id="nav_a" class="nav" href="mailto:justin.pittman@redhat.com">Email</a></li>
+    <li class="nav" id="nav_li"><a id="nav_a" class="nav" href="https://www.linkedin.com/in/justinpittman/">Linkedin</a></li>
+    <li class="nav" id="nav_li"><a id="nav_a" class="nav" href=#nav_header>Top</a></li>
   </ul>
  </nav>
  <hr>

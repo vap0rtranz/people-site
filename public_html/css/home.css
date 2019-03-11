@@ -1,3 +1,5 @@
+* { box-sizing: border-box; }
+html { font-family: sans-serif, serif; }
 header,footer,section {
 /*    border:1em black; */
     margin:.5em;
@@ -12,24 +14,19 @@ footer {
 	clear: both;
 }
 body {
-	font-family: sans-serif, serif;
 	color: black;
 	background-color: firebrick;
 }
 section {
 	float: left;
-	width: 60%;
-    color:white;
+    color: white;
     background-color:darkred;
 }
 aside {
 	float: left;
-	width: 40%;
 }
 /* navigation menu bar template based on id */
-#nav_header,#nav_footer {
-    background-color:darkred;
-}
+#nav_header,#nav_footer { background-color: darkred; }
 #nav_ul {
   list-style-type: none;
   margin: 0;
@@ -40,6 +37,8 @@ aside {
 #nav_li {
   float: left;
   border-right:.1em solid grey;
+  border-top:.1em solid grey;
+  border-bottom:.1em solid grey;
 }
 #nav_a {
   display: block;
@@ -48,30 +47,32 @@ aside {
   text-align: center;
   text-decoration: none;
 }
-#nav_a:hover {
-  background-color: darkslategrey;
+#nav_a:hover { background-color: darkslategrey; }
+.active { 
+  text-align: center;
+  background-color: darkslategrey; 
 }
-.active {
-  background-color: darkslategrey;
-}
-h1 {
-	font-size: 2em;
-}
-h2 {
-	font-size: 1.5em;
-}
-p {
-	font-size: 1em;
-}
-a:hover {
-	text-decoration:underline;
-}
-nav:hover {
-	background: gray
-}
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+p { font-size: 1em; }
+a:hover { text-decoration:underline; }
+nav:hover { background: gray }
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width:600px) {
-  section {
-    width: 100%;
-  }
+  .nav { width: 100%; }
+  section { width: 100%; }
+  aside { width: 100%; }
+  footer { width: 100%; }
+}
+/* For tablets: */
+@media and (min-width: 768px) {
+  .nav { width: 50%; }
+  section { width: 50%; }
+  aside { width: 25%; }
+}
+/* For desktop: */
+@media and (min-width: 1024px) {
+  .nav { width: 50%; }
+  section { width: 25%; }
+  aside { width: 25%; }
 }
