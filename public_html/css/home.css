@@ -23,28 +23,28 @@ aside {
     background-color:black;
 }
 /* navigation menu bar template based on id */
-#nav_header,#nav_footer { background-color: darkred; }
-#nav_ul {
+.nav_header,.nav_footer { background-color: darkred; }
+.nav_ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: black;
 }
-#nav_li {
+.nav_li {
   float: left;
   border-right:.1em solid grey;
   border-top:.1em solid grey;
   border-bottom:.1em solid grey;
 }
-#nav_a {
+.nav_a {
   display: block;
   color: white;
   padding: 1em;
   text-align: center;
   text-decoration: none;
 }
-#nav_a:hover { background-color: darkslategrey; }
+.nav_a:hover { background-color: darkslategrey; }
 .active { 
   text-align: center;
   background-color: darkslategrey; 
