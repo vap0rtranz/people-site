@@ -1,7 +1,6 @@
 * { box-sizing: border-box; }
 html { font-family: sans-serif, serif; }
 header,footer,section {
-/*    border:1em black; */
     margin:.5em;
     padding:.5em;
 }
@@ -13,17 +12,15 @@ header,footer {
 footer {
 	clear: both;
 }
-body {
-	color: black;
-	background-color: firebrick;
-}
-section {
+body,section {
 	float: left;
-    color: white;
-    background-color:darkred;
+	color: white;
+    background-color:firebrick;
 }
 aside {
-	float: left;
+	float: right;
+	color: greenyellow;
+    background-color:black;
 }
 /* navigation menu bar template based on id */
 #nav_header,#nav_footer { background-color: darkred; }
@@ -52,9 +49,14 @@ aside {
   text-align: center;
   background-color: darkslategrey; 
 }
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-p { font-size: 1em; }
+h1 { 
+  font-size: 2em; 
+}
+h2 { 
+  font-size: 1.5em; }
+p { 
+  font-size: 1em; 
+}
 a:hover { text-decoration:underline; }
 nav:hover { background: gray }
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
@@ -62,7 +64,6 @@ nav:hover { background: gray }
   .nav { width: 100%; }
   section { width: 100%; }
   aside { width: 100%; }
-  footer { width: 100%; }
 }
 /* For tablets: */
 @media and (min-width: 768px) {
