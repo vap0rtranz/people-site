@@ -33,10 +33,12 @@ aside {
 }
 .nav_li {
   float: left;
-  border-right:.1em solid grey;
-  border-top:.1em solid grey;
-  border-bottom:.1em solid grey;
+  border-left:.1em solid darkslategrey;
+  border-right:.1em solid darkslategrey;
+  border-top:.1em solid darkslategrey;
+  border-bottom:.1em solid darkslategrey;
 }
+.nav_li.right { float: right; }
 .nav_a {
   display: block;
   color: white;
@@ -72,9 +74,6 @@ nav:hover { background: gray }
   section { width: 50%; }
   aside { width: 25%; }
 }
-/* For desktop: */
-@media screen and (min-width: 1024px) {
-  .nav { width: 50%; }
-  section { width: 25%; }
-  aside { width: 25%; }
-}
+/* For desktop: 
+ * no resizing needed
+*/
