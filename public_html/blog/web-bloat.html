@@ -1,54 +1,106 @@
-Avoiding Web Bloatware: JavaScript, Analytics, Advertising
-
-
+<html lang="en">
+<!--
+  HTML5 doesn't need XML so the typical <!DOCTYPE html> isn't needed
+  if broken, insert line 1 as the typical: xml version="1.0" 
+-->
+<!-- HEAD -->
+<head>
+  <!-- http-equiv pragma is really not good but often expected by validators.  
+  See http://www.w3.org/TR/html5/document-metadata.html#attr-meta-http-equiv
+  all that should be needed for this line is: 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  -->
+  <meta charset="utf-8">
+  <!-- responsive UI based on device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Justin Pittman - Red Hat People page">
+  <meta name="keywords" content="HTML5,CSS3,static site,Red Hat,redhat.com,JBoss,journal">
+  <meta translate="no" name="author" content="Justin Pittman">
+  <link rel="stylesheet" href="../css/home.css" type="text/css" >
+  <title>Red Hat People - Justin Pittman</title>
+</head>
+<!-- BODY -->
+<body>
+<!-- HEADER: NAVBAR -->
+<header class="nav_header nav">
+ <nav class="nav_header nav">
+  <ul class="nav_ul nav">
+   <li class="active nav nav_li"><a class="nav nav_a" href="../index.html">Home</a></li>
+   <li class="nav nav_li"><a class="nav nav_a" href="https://developers.redhat.com/search/?f=type%7Echeatsheet">CheatSheets</a></li>
+   <li class="nav nav_li"><a class="nav nav_a" href="https://developers.redhat.com/search/?f=type%7Ebook">Books</a></li>
+   <li class="nav nav_li"><a class="nav nav_a" href="../blog/">Journal</a></li>
+   <li class="nav nav_li"><a class="nav nav_a" href="../howtos/">HowTos</a></li>
+   <li class="nav nav_li"><a class="nav nav_a" href="../presos/">Presos</a></li>
+   <li class="nav nav_li"><a class="nav nav_a" href="https://github.com/vap0rtranz">Code</a></li>
+  </ul>
+ </nav> 
+</header>
+<!-- MAIN SECTION -->
+<main>
+<section>
+ <header>
+<h1>Avoiding Web Bloatware: JavaScript, Analytics, Advertising</h1>
 
 I’ve grown increasingly dissatisfied with web browsing speeds but not for the usual reasons.  Usually folks complain about staring at a screen that is barely able to load a website because they’re at a congested cafe whose public Wifi is overwhelmed or out at a remote beach where their signal is down to the dreaded “1 bar”. That’s not my complaint.  Instead, I blame a deluge of web analytics and online advertising for reducing my browsing experience to digital snail speeds.  
 
+<h2>Modern Website Bloat</h2>
 
+When I browse to any modern website — well OK the choice pick would be a retailer’s website that’s full of ads — I look around the edges of my web browser as the page loads.  For example, my web browser is Firefox so when I browse to target.com the bottom of Firefox shows “waiting for facebook.com” and other websites besides target.com.  Facebook and Twitter are just two examples I notice but it seems like a deluge of websites stream across the bottom of my browser while Target’s homepage slowwwwwwly appears on my screen.  I know what technology is behind these other sites loading but I wanted to get the scope of its impact on browsing, so I downloaded a web browser plugin called “Ghostery” to tell me how many other websites were hit when I went to target.com.  My browser hit over TWO dozen websites just to browse to Target's homepage.
+ 
+<h2>Modern Web Technologies</h2>
 
-Modern Website Bloat
+For full disclosure, my browser wasn’t loading over two dozen websites in their entirety but don’t let advocates of this technology trivialize it’s behavior as “simple hops” made while going to a website.  These “simple hops” are reducing my browsing experience to snail speeds — or as we say in the business: “causing latency”.  This latency behavior is the affect of two modern web technologies: 
+<b>1) web analytics</b>, and 
+<b>2) online advertising. </b>
+These technologies enable digital marketing, including online campaigns, and targeted advertising.  Both of these web technologies have been in the spotlight by privacy fanatics because of their intrusive personalization of websites and their insidious ubiquity.  You'll easily spot Google Analytics scripts injected in almost every "modern" website today.  
+<p>I’m a skeptical supporter of capitalism and marketing because I’d rather see an ad about a Star Trek movie than a new bra.  My complaint is the negative experience I’m having because of the sluggishness these technologies are causing when I’m shopping online.  In other words, my online shopping experience is taking a “hit”.  The irony with a negative online experience from analytics and advertising is that both of these technologies are intended to enrich our online shopping experience.
 
+<h2>Realistic Testing Tools</h2>
 
+In their defense, advocate of web analytics and online advertising will say: 
+<ol>
+	<li>“hops” should have been optimized to reduce latency</li>
+	<li>the value of marketing results and targeting advertising outweigh any latency</li>
+</ol>
 
-When I browse to any modern website — well OK the choice pick would be a retailer’s website that’s full of ads — I look around the edges of my web browser as the page loads.  For example, my web browser is Chrome so when I browse to target.com the bottom of Chrome shows “waiting for facebook.com” and other websites besides Target’s.  Facebook and Twitter are just two examples I notice but it seems like a deluge of websites stream across the bottom of my browser while Target’s homepage slowwwwwwly appears on my screen.  I know what technology is behind these other sites loading but I wanted to get the scope of its impact on browsing, so I downloaded a web browser plugin called “Ghostery” to tell me how many other websites were hit when I went to target.com.  My browser hit over TWO dozen websites just to browse to the target.com homepage.
+<p>The later (b) defense is a slap in the face for criticizing technological advances because advocates are justifying their use of these technologies by saying it enhances the user experience all while the users are left twittling our thumbs waiting for pages to load!  So much for user experience!!  
+<p>The former (a) defense is technologically sound advice but, sadly, it isn’t working.  Using another website tool, Pingdom, I made a cursory check of the time these hops burn up with hitting Target’s homepage.  It took 2.5 seconds to get target.com (<a href="http://tools.pingdom.com/fpt/#!/jFbn7/target.com" name="Pingdom" title="Pingdom">http://tools.pingdom.com/fpt/#!/jFbn7/target.com</a>).  The latency Pingdom calculates excludes the additional time your web browser needs to display that homepage, or what technologists call “rendering time” (when your browser renders the page to your laptop or phone), so any time seen by checks like Pingdom imply an even longer period of time before a person browsing can interact fully with the webpage.  
 
+Defenders of analytics and advertising technology will chastise me for ignoring the Elephant in the Room on performance and latency.  One assumption has been:
+ latency comes from getting and rendering media, like images, because big pictures must be downloaded to the browser before you can see them, and people like their huge Cat of The Day pics.  
+They are right but the Devil is in the details.  For example, the biggest chunk of time spent getting target.com came from images (65% of time spent) when I posted the 1st edition of the blog; now (in 2020) target.com spents most of its time downloading Javascript (70% of time spent).  Web analytics and online advertising are embedded in the webpage as scripts and like images must be downloaded, and <b>then</b> these scripts must executed by the client browser.  In my Target webpage sample, Pingdom found that the total size of images is not much bigger than the size of web analytics and online advertising (842kB versus 698kB*).  So target.com had nearly as much scripting payload as it did images (in 2016, and now it's 2020 payload has more Javascript than images).  There could be scripts other than analytics and advertising but another indication about the cause of latency comes from the amount of time Pingdom’s browsing spent “connecting” and “waiting” rather than receiving the Target’s homepage.  Less than half of the time I’m waiting to click around for a new coffee maker on target.com is when my web browser actually receives the webpage.  Speaking of “Devil”, as a comparison I pointed Pingdom against the old Internet Explorer is Evil webpage (http://toastytech.com/evil/) … that webpage only took 306 milliseconds to get (http://tools.pingdom.com/fpt/#!/bNJGe7/http://toastytech.com/evil/).  Ghostery also found zero web analytics or online advertising on the Evil webpage.  If you don't like the Evil webpage, you can also get Google itself to check this website with it's own performance tools:
 
+<a href="https://developers.google.com/speed/pagespeed/insights/?url=people.redhat.com%2F~jupittma&tab=desktop" name="Google PageSpeed" title="Google PageSpeed">https://developers.google.com/speed/pagespeed/insights/?url=people.redhat.com%2F~jupittma&tab=desktop</a>
 
-Modern Web Technologies
+<h2>A Magic Pill?</h2>
+<p>A curious technologist or intuitive advocate of these technologies would expect that a web server should be able to respond faster by working on components of the webpage in parallel.  I would agree.  When viewed with a very broad lens, modern website design could be described as distributed computing because webpages distribute the analytics and advertisements to agencies that specialize in these technologies.  Web developers simply embed these agencies technologies into their website as scripts instead of maintaining all these technologies from their own web server.  Yet a broad lens overlooks the details and complications.  After digging around in the world of webpage design and digital marketing, it appears parallelizing webpage rendering is difficult.  Evidently modern browsers render webpages the way a fax machine scans — so in sequence from top to bottom — so the latency problem first hits when something in this sequence takes a long period of time.  A long running step, like a web analytics script embedded in the webpage, will block the rest of the webpage from rendering until the agency’s web server responds and the web browser executes their script.  You’ve experienced the results of this “scanning” latency when half a webpage appears on in your browser, when bars or menus appear after a center panel is already visible, and when images appear later than text.  Web developers have some tricks up the sleeves for circumventing this blocking behavior, such as event handlers and optimizing the webpage sequence.  For example, scripts that execute advertisements and analytics could be embedded at the bottom of webpages and not block other components from rendering so I can start interacting with the website.  (I’m no expert so one good source on scripting behavior is at: <a href="http://mrcoles.com/blog/how-tracking-scripts-affect-page-loads/" name="How Blocking Scripts Affect Page Loads" title="How Blocking Scripts Affect Page Loads">http://mrcoles.com/blog/how-tracking-scripts-affect-page-loads/</a>)  But this isn’t a magic pill.  
+<p>Web browsers react differently to event handlers and even then the script response time is only as fast as the agency’s web server.  So another technology, content delivery (CDNs) or edge networks, is introduced to further optimize the typical response time of web servers.  Content or edge networks work well but the latency persists because of systemic problems with modern websites themselves.  Take the use of Javascript itself.  It's usage in website has risen to the level of "you aren't a Frontend Developer unless you dream in JS" assumptions.  The problem with "assumptions" are well known.  Dynamic, responsive, so-called "modern" websites are not the exclusive domain of Javascript.  You can make a responsive / dynamic website without any Javascript, as I've done here, or as we did well before Javascript became ubiquitous.  For a long time, dynamic websites used server-side scripting instead of client-side scripting; and that begs a few questions: if client-side is "better" or preferred, why are users not enjoying an online experience that is abscent of latency?  Do we just blame their device, aka. the client, and not probe deeper?  
 
-
-
-For full disclosure, my browser wasn’t loading over two dozen websites in their entirety but don’t let advocates of this technology trivialize it’s behavior as “simple hops” made while going to a website.  These “simple hops” are reducing my browsing experience to snail speeds — or as we say in the business: “causing latency”.  This latency behavior is the affect of two modern web technologies: 1) web analytics, and 2) online advertising. These technologies enable digital marketing, including online campaigns, and targeted advertising.  Both of these web technologies have been in the spotlight by privacy fanatics because of their intrusive personalization of websites but that’s not my complaint here.  I’m a huge fan of capitalism and marketing because I’d rather see an ad about a Star Trek movie than a new bra.  My complaint is the negative experience I’m having because of the sluggishness these technologies are causing when I’m shopping online.  In other words, my online shopping experience is taking a “hit”.  The irony with a negative online experience from analytics and advertising is that both of these technologies are intended to enrich our online shopping experience.
-
-
-
-Realistic Testing Tools
-
-
-
-In their defense, advocate of web analytics and online advertising will say: a) the “hops” should have been optimized to reduce latency and b) the value of marketing results and targeting advertising outweigh any latency.  The later (b) defense is a slap in the face for criticizing technological advances so I’ll simply ignore it.  The former (a) defense is technologically sound advice but, sadly, it isn’t working.  Using another website tool, Pingdom, I made a cursory check of the time these hops burn up with hitting Target’s homepage.  It took 2.5 seconds to get target.com (http://tools.pingdom.com/fpt/#!/jFbn7/target.com).  The latency Pingdom calculates excludes the additional time your web browser needs to display that homepage, or what technologists call “rendering time” (when your browser renders the page to your laptop or phone), so any time seen by checks like Pingdom imply an even longer period of time before a person browsing can interact fully with the webpage.  
-
-
-
-Again, defenders of analytics and advertising technology will chastise me for ignoring the Elephant in the Room: the biggest latency comes from getting and rendering media, like images, because big pictures must be downloaded to the browser so you can see them.  They are right but the Devil is in the details.  For example, the biggest chunk of time spent getting target.com comes from images (65% of time).  Web analytics and online advertising are embedded in the webpage as scripts and like images must be downloaded but executed by the browser instead of displayed.  In this example, Pingdom also found that the total size of images is not much bigger than the size of web analytics and online advertising (842kB versus 698kB*).  So target.com has nearly as much scripting payload as it does images.  There could be scripts other than analytics and advertising but another indication about the cause of latency comes from the amount of time Pingdom’s browsing spent “connecting” and “waiting” rather than receiving the Target’s homepage.  Less than half of the time I’m waiting to click around for a new coffee maker on target.com is when my web browser actually receives the webpage.  Speaking of “Devil”, as a comparison I pointed Pingdom against the old Internet Explorer is Evil webpage (http://toastytech.com/evil/) … that webpage only took 306 milliseconds to get  (http://tools.pingdom.com/fpt/#!/bNJGe7/http://toastytech.com/evil/).  Ghostery also found zero web analytics or online advertising on the Evil webpage.
-
-https://developers.google.com/speed/pagespeed/insights/?url=people.redhat.com%2F~jupittma&tab=desktop
-
-
-A Magic Pill?
-
-
-
-I do believe there is a magic pill, and it's called: KISS (Keep It Simple, Stupid).  Static websites can be beautiful, there are other modern web technologies to facilitate getting there -- HTML5 and CSS3.  A smart technologist or intuitive advocate of these technologies would expect that a web server should be able to respond faster by working on components of the webpage in parallel.  I would agree.  When viewed with a very broad lens, modern website design could be described as distributed computing because webpages distribute the analytics and advertisements to agencies that specialize in these technologies.  Web developers simply embed these agencies technologies into their website as scripts instead of maintaining all these technologies from their own web server.  Yet a broad lens overlooks the details and complications.  After digging around in the world of webpage design and digital marketing, it appears parallelizing webpage rendering is difficult.  Evidently modern browsers render webpages the way a fax machine scans — so in sequence from top to bottom — so the latency problem first hits when something in this sequence takes a long period of time.  A long running step, like a web analytics script embedded in the webpage, will block the rest of the webpage from rendering until the agency’s web server responds and the web browser executes their script.  You’ve experienced the results of this “scanning” latency when half a webpage appears on in your browser, when bars or menus appear after a center panel is already visible, and when images appear later than text.  Web developers have some tricks up the sleeves for circumventing this blocking behavior, such as event handlers and optimizing the webpage sequence.  For example, scripts that execute advertisements and analytics could be embedded at the bottom of webpages and not block other components from rendering so I can start interacting with the website.  (I’m no expert so one good source on scripting behavior is at: http://mrcoles.com/blog/how-tracking-scripts-affect-page-loads/)  But this isn’t a magic pill.  Web browsers react differently to event handlers and even then the script response time is only as fast as the agency’s web server.  So another technology, content delivery or edge networks, is introduced to further optimize the typical response time of web servers.  Content or edge networks work well but the latency persists because of scale.  
-
-
-
-1 Bar
-
-
+<p>I do believe there is a magic pill, and it's called: <b>KISS (Keep It Simple, Stupid)</b>.  Static websites can be beautiful, there are other modern web technologies to facilitate getting there, whether static site generators, like <a href="https://jekyllrb.com/docs/step-by-step/01-setup/" name="Jeykll" title="Jeykll">Jeykll</a>, or just writing plain code, like HTML5 and CSS3 that I've kept doing).  
+<h2>1 Bar</h2>
 
 Websites are embedding a deluge of analytics and advertising scripts in a single webpage that the gains in event handlers and delivery networks has become moot.  Again, target.com called over two dozen external web servers for a single hit to their homepage.  The strongest indication of a degrading problem is modern hardware running modern software rendering a modern webpage slower than a decade old webpage.  My simplistic comparison of time and payload above hints at this being the root cause.  Although I see great value in tracking campaign efficacy, adjusting to customer browsing behavior, and other datasets that web technologies have enabled with web analytics and online advertising, I don’t see the value of these technologies outweighing a sluggish online experience.  Our online experience is being smothered by marketing technology.  I might as well be browsing with only “1 bar” of signal.
 
 
-
 ... to be continued.
+<!-- FOOTER -->
+<footer class="nav_footer nav">
+ <nav class="nav_footer nav">
+  <ul class="nav_ul nav">
+    <li class="nav nav_li"><a class="nav_a nav" href="mailto:justin.pittman@redhat.com">Email</a></li>
+    <li class="nav nav_li"><a class="nav_a nav" href="https://www.linkedin.com/in/justinpittman/">Linkedin</a></li>
+    <li class="nav nav_li"><a class="nav_a nav" href=#nav_header>Top</a></li>
+  </ul>
+ </nav>
+ <hr>
+  <a href="http://www.w3.org/html/logo/">
+    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="165" height="64" alt="HTML5 Powered" title="HTML5 Powered">
+  </a>
+  <a href="https://jigsaw.w3.org/css-validator/">
+    <img src="https://jigsaw.w3.org/css-validator/images/vcss" width="88" height="31" alt="Valid CSS!" title="W3C Validated CSS!"/>
+  </a>
+  <img src="../images/people_redhat_com.png" width="145" height="64" alt="Red Hat People logo" title="Red Hat People logo"/>
+</footer> 
+</main>
+</body>
+</html>
